@@ -11,6 +11,6 @@ RUN apt-get update -q -y \
             && ./dotnet-install.sh --version 3.1.426 \
             && echo 'export DOTNET_ROOT=$HOME/.dotnet' >> ~/.bashrc \
             && echo 'export PATH=$PATH:$DOTNET_ROOT:$DOTNET_ROOT/tools' >> ~/.bashrc \
-            && source ~/.bashrc \
+            && . ~/.bashrc \
             && dotnet --version \
             && dotnet tool install --global nbgv --version 3.5.119
