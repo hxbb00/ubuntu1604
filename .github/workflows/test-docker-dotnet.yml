@@ -1,0 +1,35 @@
+name: test-docker-dotnet
+
+on:
+    workflow_dispatch:
+
+jobs:
+  test-docker-dotnet:
+    runs-on: ubuntu-20.04
+    container:
+      image: 'ghcr.io/hxbb00/ubuntu1604:main'
+      credentials:
+        username: ${{ github.actor }}
+        password: ${{ secrets.github_token }}
+
+    env:
+      CC: gcc
+      CXX: g++
+      PLATFORM: x64
+      DOTNET_NOLOGO: true
+      DOTNET_CLI_TELEMETRY_OPTOUT: true
+
+    steps:
+      - name: Check for dockerenv file
+        run: (ls /.dockerenv && echo Found dockerenv) || (echo No dockerenv)
+
+      # You can test your matrix by printing the current dotnet version
+      - name: Setup dotnet
+        shell: bash
+        run: |
+          uname -a
+          cat /proc/version
+          pwd
+          ls -al "${PWD}"
+          dotnet --version
+          nbgv cloud --all-vars
