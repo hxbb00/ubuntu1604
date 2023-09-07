@@ -12,3 +12,5 @@ RUN apt-get update -q -y \
             && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet \
             && dotnet --version \
             && dotnet tool install --global nbgv --version 3.5.119
+
+ENV PATH="/root/.dotnet/tools:${PATH}"
