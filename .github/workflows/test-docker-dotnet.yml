@@ -33,3 +33,4 @@ jobs:
           ls -al "${PWD}"
           dotnet --version
           nbgv cloud --all-vars
+          gcc --version
