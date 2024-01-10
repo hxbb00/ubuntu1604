@@ -8,9 +8,9 @@ RUN apt-get update -q -y \
             && echo "Setup dotnet 3.1.x" \
             && wget https://dotnet.microsoft.com/download/dotnet/scripts/v1/dotnet-install.sh -O dotnet-install.sh \
             && sudo chmod +x ./dotnet-install.sh \
-            && ./dotnet-install.sh --version 3.1.426 --install-dir /usr/share/dotnet \
+            && ./dotnet-install.sh --version 8.0.1xx --install-dir /usr/share/dotnet \
             && ln -s /usr/share/dotnet/dotnet /usr/bin/dotnet \
             && dotnet --version \
-            && dotnet tool install --global nbgv --version 3.5.119
+            && dotnet tool install --global nbgv
 
 ENV PATH="/root/.dotnet/tools:${PATH}"
